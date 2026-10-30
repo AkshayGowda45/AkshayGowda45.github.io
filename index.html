@@ -3,22 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akshay Gowda A M | Data Analyst & Data Engineer</title>
-  <meta
-    name="description"
-    content="Akshay Gowda A M - MCA Graduate, Data Analyst and Data Engineer portfolio. SQL, Python, PySpark, Databricks, ETL and Power BI."
-  />
-  <link rel="stylesheet" href="style.css" />
+  <title>Akshay Gowda A M | Data Engineer & Data Analyst</title>
+  <meta name="description" content="Portfolio of Akshay Gowda A M: Data Engineer and Data Analyst. PySpark, Databricks, ETL pipelines, SQL, BigQuery, Power BI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b1020; --bg2:#101733; --card:#141c3a; --line:#26305a;
+      --text:#e8ecff; --muted:#a3acd1; --accent:#6c8cff; --accent2:#22d3ee;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8ff; --bg2:#eaeffd; --card:#ffffff; --line:#d9e0f5;
+             --text:#0f1733; --muted:#55608a; --shadow:0 10px 30px rgba(30,50,120,.10); }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin-inline:auto}
+    section{padding:84px 0}
+    .alt{background:var(--bg2)}
+    h2.title{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;margin-bottom:10px}
+    h2.title::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:10px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .sub{color:var(--muted);margin:14px 0 34px;max-width:720px}
+
+    /* NAV */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .logo{font-weight:800;letter-spacing:.2px}
+    .logo span{color:var(--accent)}
+    nav ul{display:flex;gap:26px;list-style:none}
+    nav a{color:var(--muted);font-size:.93rem;font-weight:500;transition:.2s}
+    nav a:hover{color:var(--text)}
+    .burger{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:6px 12px;font-size:1.1rem;cursor:pointer}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid transparent;transition:.2s;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#07102b}
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,140,255,.35)}
+    .btn.ghost{border-color:var(--line);background:var(--card)}
+    .btn.ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .btn.small{padding:8px 16px;font-size:.88rem}
+
+    /* HERO */
+    .hero{padding:90px 0 70px;background:radial-gradient(900px 400px at 85% -10%,rgba(108,140,255,.22),transparent),radial-gradient(700px 360px at 0% 10%,rgba(34,211,238,.14),transparent)}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+    .pill{display:inline-block;padding:6px 14px;border:1px solid var(--line);background:var(--card);border-radius:999px;color:var(--accent2);font-size:.82rem;font-weight:600;margin-bottom:18px}
+    h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;font-weight:800;margin-bottom:12px}
+    h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .role{font-size:1.2rem;color:var(--muted);font-weight:500;margin-bottom:16px}
+    .lead{color:var(--muted);max-width:620px;margin-bottom:26px}
+    .lead strong{color:var(--text)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+    .social{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.92rem}
+    .social a:hover{color:var(--accent2)}
+    .photo{position:relative;justify-self:center}
+    .photo::before{content:"";position:absolute;inset:-10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));filter:blur(18px);opacity:.45}
+    .photo img{position:relative;width:min(300px,70vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--card);box-shadow:var(--shadow);background:var(--card)}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:54px}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center}
+    .stat b{display:block;font-size:1.9rem;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .stat small{color:var(--muted)}
+
+    /* ABOUT */
+    .about p{color:var(--muted);margin-bottom:16px;max-width:860px}
+    .about strong{color:var(--text)}
+
+    /* SKILLS */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.25s}
+    .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .card h3{font-size:1.05rem;margin-bottom:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tags span{padding:5px 12px;border-radius:999px;font-size:.82rem;font-weight:500;background:var(--bg2);border:1px solid var(--line);color:var(--text)}
+
+    /* PROJECTS */
+    .project{display:flex;flex-direction:column;gap:12px}
+    .project .stack{font-size:.82rem;color:var(--accent2);font-weight:600}
+    .project ul{padding-left:18px;color:var(--muted);font-size:.93rem}
+    .project li{margin-bottom:6px}
+    .project li b{color:var(--text)}
+    .project .btn{align-self:flex-start;margin-top:auto}
+
+    /* TIMELINE */
+    .timeline{position:relative;border-left:2px solid var(--line);margin-left:8px;padding-left:28px;display:grid;gap:22px}
+    .item{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+    .item::before{content:"";position:absolute;left:-37px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+    .item h3{font-size:1.1rem}
+    .item .meta{color:var(--accent2);font-size:.88rem;font-weight:600;margin:2px 0 10px}
+    .item ul{padding-left:18px;color:var(--muted);font-size:.93rem}
+    .item li{margin-bottom:6px}
+    .item li b{color:var(--text)}
+
+    /* CERTS */
+    .certs{list-style:none;display:grid;gap:12px;max-width:560px}
+    .certs li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+    .certs li::before{content:"✓";color:var(--accent2);font-weight:800}
+
+    /* CONTACT */
+    .contact{text-align:center}
+    .contact h2.title::after{margin-inline:auto}
+    .contact .sub{margin-inline:auto}
+    .contact .cta{justify-content:center}
+
+    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.88rem}
+    .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+    /* RESPONSIVE */
+    @media (max-width:860px){
+      .hero-grid{grid-template-columns:1fr;text-align:center}
+      .lead{margin-inline:auto}
+      .cta,.social{justify-content:center}
+      .photo{order:-1}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .burger{display:block}
+      nav ul{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line)}
+      nav ul.open{display:flex}
+      nav li a{display:block;padding:14px 5%}
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
+  <header>
     <div class="container nav">
-      <h2 class="logo">Akshay Gowda A M</h2>
+      <a href="#home" class="logo">Akshay<span>.</span>Gowda</a>
+      <button class="burger" id="burger" aria-label="Toggle menu">☰</button>
       <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
+        <ul id="menu">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -32,275 +153,210 @@
 
   <!-- HERO -->
   <section id="home" class="hero">
-    <div class="container hero-grid">
-
-      <!-- LEFT -->
-      <div class="hero-text">
-        <p class="tag">MCA Graduate • Data Analyst • Data Engineer</p>
-
-        <h1>Hi, I'm <span>Akshay Gowda A M</span></h1>
-
-        <p class="hero-mini">
-          Bengaluru, India • Data Analyst • Data Engineer
-        </p>
-
-        <p class="hero-desc">
-          MCA graduate with internship experience in
-          <strong>SQL, Python, Power BI, ETL pipelines, PySpark, and Databricks</strong>.
-          I build reliable data pipelines, analysis-ready datasets, KPI dashboards, and reporting workflows
-          that help teams make faster, better-informed business decisions.
-        </p>
-
-        <div class="hero-buttons">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="Akshay_Gowda_AM_Data_Analyst_Resume.pdf" target="_blank">Download Resume</a>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="pill">MCA Graduate • Bengaluru, India</span>
+          <h1>Hi, I'm <span>Akshay Gowda A M</span></h1>
+          <p class="role">Data Engineer &amp; Data Analyst</p>
+          <p class="lead">
+            I design and build <strong>PySpark and Databricks ETL pipelines</strong> that turn raw, messy data into
+            validated, star-schema models and analysis-ready datasets, then serve them through
+            <strong>SQL and Power BI</strong> so business teams can trust and reuse them.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="Akshay_Gowda_AM_Data_Engineer_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          </div>
+          <div class="social">
+            <a href="https://github.com/AkshayGowda45" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:amgowda74@gmail.com">amgowda74@gmail.com</a>
+          </div>
         </div>
-
-        <div class="hero-links">
-          <a href="https://github.com/AkshayGowda45" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/" target="_blank">LinkedIn</a>
-          <a href="mailto:amgowda74@gmail.com">amgowda74@gmail.com</a>
+        <div class="photo">
+          <img src="mypic.jpeg" alt="Akshay Gowda A M" />
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="hero-side">
-        <div class="photo-card">
-          <img src="mypic.jpeg" alt="Akshay Gowda A M" class="profile-photo" />
-        </div>
-
-        <div class="info-card">
-          <h3>Profile Snapshot</h3>
-          <ul>
-            <li><strong>Education:</strong> MCA Graduate, SJBIT Bengaluru</li>
-            <li><strong>Main Goal:</strong> Data Analyst & Data Engineer</li>
-            <li><strong>Core Stack:</strong> SQL, Python, Pandas, PySpark, Databricks, Power BI, MySQL</li>
-            <li><strong>Analytics Focus:</strong> Data Cleaning, EDA, KPI Reporting, Dashboarding, Business Insights</li>
-            <li><strong>Engineering Focus:</strong> ETL Pipelines, Data Transformation, Data Modeling, Analysis-ready Datasets</li>
-          </ul>
-        </div>
+      <div class="stats">
+        <div class="stat"><b>50,000+</b><small>records processed in ETL pipeline</small></div>
+        <div class="stat"><b>~80%</b><small>faster than single-machine Pandas</small></div>
+        <div class="stat"><b>~75%</b><small>less manual reporting effort</small></div>
+        <div class="stat"><b>2</b><small>data internships completed</small></div>
       </div>
-
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-
-      <p class="section-text">
-        I'm <strong>Akshay Gowda A M</strong>, an <strong>MCA graduate</strong> with internship experience across
-        <strong>data analysis, business reporting, and ETL pipeline development</strong>.
-        I use <strong>SQL, Python, Power BI, Pandas, PySpark, and Databricks</strong>
-        to clean data, transform raw datasets, build dashboards, and turn numbers into actionable business insights.
+  <section id="about" class="alt">
+    <div class="container about reveal">
+      <h2 class="title">About Me</h2>
+      <p class="sub">MCA graduate from SJB Institute of Technology, Bengaluru, focused on data engineering and analytics.</p>
+      <p>
+        I build <strong>data pipelines end to end</strong>: ingesting raw data, cleaning and validating it, transforming it with
+        <strong>PySpark and SQL</strong>, modeling it into a <strong>star schema</strong>, and delivering it to dashboards and reports.
+        My work centers on data quality, batch processing, and reliable, reusable datasets.
       </p>
-
-      <p class="section-text">
-        As a <strong>Data Analyst</strong>, I enjoy
-        <strong>SQL analysis, exploratory data analysis, KPI reporting, dashboard development, and trend analysis</strong>.
-        As a <strong>Data Engineer</strong>, I have hands-on experience with
-        <strong>ETL workflows, PySpark transformations on Databricks, star-schema data modeling, and preparing analysis-ready datasets</strong>
-        for reporting and decision-making.
+      <p>
+        On the analytics side I use <strong>SQL, Python, Power BI, and DAX</strong> to find patterns, track KPIs, and explain results to
+        non-technical stakeholders. I also work with <strong>Google BigQuery, GA4, Looker Studio, AWS, and Azure</strong>.
       </p>
-
-      <p class="section-text">
-        Through internships and projects, I've worked on
-        <strong>sales analytics, delivery SLA analysis, reporting automation, and distributed data processing</strong>.
-        I'm currently seeking opportunities as a
-        <strong>Data Analyst</strong> or <strong>Data Engineer</strong>, where I can build reliable, insight-driven data solutions.
-      </p>
+      <p>I'm currently open to <strong>Data Engineer</strong> and <strong>Data Analyst</strong> roles in Bengaluru.</p>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section alt-bg">
+  <section id="skills">
     <div class="container">
-      <h2 class="section-title">Skills & Tools</h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <h3>Data Analysis</h3>
-          <div class="tags">
-            <span>SQL</span>
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>NumPy</span>
-            <span>Excel</span>
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>Power Query</span>
-            <span>EDA</span>
-            <span>Data Cleaning</span>
-            <span>KPI Reporting</span>
-            <span>Dashboarding</span>
-            <span>Business Insights</span>
-            <span>Customer Segmentation</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
+      <h2 class="title reveal">Skills &amp; Tools</h2>
+      <div class="grid reveal" style="margin-top:30px">
+        <div class="card">
           <h3>Data Engineering</h3>
-          <div class="tags">
-            <span>PySpark</span>
-            <span>Databricks</span>
-            <span>ETL Pipelines</span>
-            <span>Data Transformation</span>
-            <span>Data Modeling</span>
-            <span>Star Schema</span>
-            <span>Analysis-ready Datasets</span>
-            <span>Distributed Processing</span>
-            <span>Batch Processing</span>
-            <span>Spark SQL</span>
-            <span>Data Validation</span>
-          </div>
+          <div class="tags"><span>PySpark</span><span>Databricks</span><span>ETL Pipelines</span><span>Data Pipeline Development</span><span>Distributed Data Processing</span><span>Batch Processing</span></div>
         </div>
-
-        <div class="skill-card">
-          <h3>Databases & Tools</h3>
-          <div class="tags">
-            <span>MySQL</span>
-            <span>MongoDB</span>
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>Jupyter Notebook</span>
-            <span>Google Colab</span>
-            <span>Streamlit</span>
-          </div>
+        <div class="card">
+          <h3>Data Modeling &amp; Quality</h3>
+          <div class="tags"><span>Data Transformation</span><span>Data Modeling</span><span>Star Schema</span><span>Data Validation</span><span>Data Quality</span></div>
         </div>
-
-        <div class="skill-card">
-          <h3>Cloud & Visualization</h3>
-          <div class="tags">
-            <span>AWS S3</span>
-            <span>AWS EC2</span>
-            <span>Azure Blob Storage</span>
-            <span>Azure Data Factory</span>
-            <span>Matplotlib</span>
-            <span>Seaborn</span>
-          </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="tags"><span>Python</span><span>SQL</span></div>
         </div>
-
+        <div class="card">
+          <h3>Databases</h3>
+          <div class="tags"><span>MySQL</span><span>MongoDB</span><span>Google BigQuery</span></div>
+        </div>
+        <div class="card">
+          <h3>Cloud</h3>
+          <div class="tags"><span>AWS (S3, EC2)</span><span>Microsoft Azure (Blob Storage, Data Factory)</span></div>
+        </div>
+        <div class="card">
+          <h3>Analytics &amp; BI</h3>
+          <div class="tags"><span>Power BI</span><span>DAX</span><span>Google Analytics</span><span>GA4</span><span>Looker Studio</span><span>Google Data Studio</span><span>Microsoft Excel</span></div>
+        </div>
+        <div class="card">
+          <h3>Data Processing</h3>
+          <div class="tags"><span>Pandas</span><span>NumPy</span><span>Data Cleaning</span><span>Exploratory Data Analysis</span></div>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <div class="tags"><span>Git</span><span>GitHub</span><span>Jupyter Notebook</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
+  <section id="projects" class="alt">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">
-        End-to-end projects covering ETL pipelines, data modeling, SQL analysis, and business dashboards.
-      </p>
-
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <h3>QuickCommerce360 — Distributed ETL & Analytics Pipeline</h3>
-          <p>
-            Built an end-to-end data pipeline using
-            <strong>PySpark, Databricks, SQL, and Power BI</strong>
-            to process quick-commerce order data into a star schema and generate business insights.
-          </p>
+      <h2 class="title reveal">Featured Projects</h2>
+      <p class="sub reveal">End-to-end projects covering ETL pipelines, data modeling, SQL, and business dashboards.</p>
+      <div class="grid reveal">
+        <div class="card project">
+          <h3>QuickCommerce360: Distributed ETL &amp; Analytics Pipeline</h3>
+          <div class="stack">Python • SQL • PySpark • Databricks • Power BI</div>
           <ul>
-            <li>Built a distributed ETL pipeline on Databricks (PySpark) for 50,000+ raw order records, cutting processing time by ~80% versus single-machine Pandas</li>
-            <li>Wrote SQL (JOINs, CTEs, window functions) to compute delivery SLA breaches, repeat-customer rates, and revenue by segment</li>
-            <li>Delivered 5 Power BI dashboards (revenue, customer, delivery, marketing ROI), cutting manual reporting effort by ~75%</li>
+            <li>Engineered a distributed ETL pipeline on Databricks with PySpark that ingests, cleans, validates, and transforms <b>50,000+ raw order records</b>, cutting processing time by <b>~80%</b> versus single-machine Pandas.</li>
+            <li>Designed a <b>star-style schema</b> and wrote optimized SQL using JOINs, GROUP BY aggregations, CTEs, and window functions for delivery SLA breach, repeat-customer, and segment revenue metrics.</li>
+            <li>Served modeled data to <b>5 Power BI dashboards</b> with DAX measures, slicers, and drill-through, reducing manual reporting effort by <b>~75%</b>.</li>
           </ul>
           <!-- TODO: replace REPO-NAME with your real repository name -->
-          <a class="btn small primary" href="https://github.com/AkshayGowda45/REPO-NAME" target="_blank">View on GitHub</a>
+          <a class="btn primary small" href="https://github.com/AkshayGowda45/REPO-NAME" target="_blank" rel="noopener">View on GitHub</a>
         </div>
 
-        <div class="project-card">
-          <h3>Retail Sales Analytics — End-to-End Pipeline</h3>
-          <p>
-            Designed a retail analytics workflow using
-            <strong>Python, SQL, MySQL, and Power BI</strong>
-            to analyze sales performance, customer behavior, and product trends.
-          </p>
+        <div class="card project">
+          <h3>Retail Sales Analytics: End-to-End Data Pipeline</h3>
+          <div class="stack">Python • SQL • MySQL • Power BI</div>
           <ul>
-            <li>Built SQL logic across customer, product, and order tables for revenue analysis and sales ranking (RANK, ROW_NUMBER)</li>
-            <li>Built a Pandas cleaning pipeline (null handling, type casting, deduplication) that cut manual data prep by ~70%</li>
-            <li>Developed interactive Power BI dashboards with KPI cards, regional filters, and trend visuals</li>
+            <li>Built a SQL-driven workflow in MySQL across customer, product, and order tables using JOINs, CTEs, and RANK and ROW_NUMBER window functions for sales ranking.</li>
+            <li>Developed a Python and Pandas cleaning pipeline handling null values, type casting, and deduplication, <b>cutting manual data prep time by ~70%</b>.</li>
+            <li>Delivered interactive Power BI dashboards with KPI cards and regional filters that expose top products, regional gaps, and customer trends.</li>
           </ul>
           <!-- TODO: replace REPO-NAME with your real repository name -->
-          <a class="btn small primary" href="https://github.com/AkshayGowda45/REPO-NAME" target="_blank">View on GitHub</a>
+          <a class="btn primary small" href="https://github.com/AkshayGowda45/REPO-NAME" target="_blank" rel="noopener">View on GitHub</a>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="section alt-bg">
+  <section id="experience">
     <div class="container">
-      <h2 class="section-title">Experience</h2>
-
-      <div class="experience-grid">
-
-        <div class="experience-card">
+      <h2 class="title reveal">Experience</h2>
+      <div class="timeline reveal" style="margin-top:30px">
+        <div class="item">
           <h3>Data Analyst Intern</h3>
-          <h4>Dyashin Technosoft, Bengaluru · Mar 2026 – Aug 2026</h4>
-          <p>
-            Analyzed six months of regional sales data with SQL (JOINs, CTEs, window functions) and identified three
-            underperformance patterns. Prepared clean, analysis-ready datasets with Python and Pandas, and built Power BI
-            KPI dashboards that reduced manual reporting effort by 35%.
-          </p>
+          <div class="meta">Dyashin Technosoft, Bengaluru • Mar 2026 – Aug 2026</div>
+          <ul>
+            <li>Transformed and analyzed six months of regional sales data with SQL JOINs, CTEs, and window functions, uncovering <b>three underperformance patterns</b> presented to business teams.</li>
+            <li>Prepared analysis-ready datasets in Python and Pandas using correlation analysis, distribution analysis, and outlier detection.</li>
+            <li>Built Power BI dashboards with KPI cards, slicers, and drill-through filters, <b>reducing manual reporting effort by 35%</b>.</li>
+          </ul>
         </div>
-
-        <div class="experience-card">
+        <div class="item">
           <h3>Machine Learning Intern</h3>
-          <h4>Take It Smart OPC Pvt Ltd, Bengaluru · Sep 2025 – Feb 2026</h4>
-          <p>
-            Cleaned and transformed five real-world datasets with Python and Pandas, improving data quality for downstream reporting.
-            Automated recurring reporting workflows, reducing ad-hoc stakeholder requests by 30%, and built visualizations
-            to communicate findings to non-technical stakeholders.
-          </p>
+          <div class="meta">Take It Smart OPC Pvt Ltd, Bengaluru • Sep 2025 – Feb 2026</div>
+          <ul>
+            <li>Cleaned and transformed <b>five real-world datasets</b> with Python and Pandas, improving data quality and consistency for reporting.</li>
+            <li>Automated recurring reporting workflows with Python and Jupyter Notebooks, <b>reducing ad-hoc stakeholder requests by 30%</b>.</li>
+            <li>Communicated findings to non-technical stakeholders through Matplotlib and Seaborn visualizations.</li>
+          </ul>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
-  <section id="certifications" class="section">
+  <section id="certifications" class="alt">
     <div class="container">
-      <h2 class="section-title">Certifications</h2>
-
-      <div class="cert-grid">
-        <div class="cert-card">IBM Data Analytics Basics</div>
-        <div class="cert-card">Deloitte Australia – Data Analytics Job Simulation</div>
-        <div class="cert-card">HP LIFE – Data Science & Analytics</div>
-        <div class="cert-card">NPTEL IIT Madras – Information Security</div>
-      </div>
+      <h2 class="title reveal">Certifications</h2>
+      <ul class="certs reveal" style="margin-top:30px">
+        <li>Deloitte Australia – Data Analytics</li>
+        <li>HP – Data Science and Analytics</li>
+        <li>IBM – Data Analytics Basics</li>
+        <li>NPTEL IIT Madras – Information Security</li>
+      </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section alt-bg">
-    <div class="container contact-box">
-      <h2 class="section-title">Let's Connect</h2>
-      <p class="section-text">
-        I'm currently open to <strong>Data Analyst</strong> and <strong>Data Engineer</strong> opportunities.
-        If you'd like to discuss entry-level roles, data projects, or collaborations, feel free to connect with me.
-      </p>
-
-      <div class="contact-links">
+  <section id="contact">
+    <div class="container contact reveal">
+      <h2 class="title">Let's Connect</h2>
+      <p class="sub">Open to Data Engineer and Data Analyst opportunities. Reach out about roles, projects, or collaborations.</p>
+      <div class="cta">
         <a class="btn primary" href="mailto:amgowda74@gmail.com">Email Me</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/" target="_blank">LinkedIn</a>
-        <a class="btn secondary" href="https://github.com/AkshayGowda45" target="_blank">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/AkshayGowda45" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-wrap">
-      <p>© 2026 Akshay Gowda A M. All rights reserved.</p>
-      <p>Built with HTML, CSS, and GitHub Pages.</p>
+  <footer>
+    <div class="container foot">
+      <span>© 2026 Akshay Gowda A M. All rights reserved.</span>
+      <span>Built with HTML, CSS, and GitHub Pages.</span>
     </div>
   </footer>
 
+  <script>
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+    // Scroll reveal
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(el => io.observe(el));
+    } else {
+      items.forEach(el => el.classList.add('show'));
+    }
+  </script>
 </body>
 </html>
