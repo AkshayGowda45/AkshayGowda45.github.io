@@ -1,2931 +1,2443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-  <meta name="description"
-    content="Akshay Gowda A M — Data Engineer & Data Analyst specializing in SQL, Python, PySpark, Databricks, BigQuery, ETL, data modeling and Power BI.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="author" content="Akshay Gowda A M">
+    <meta
+        name="description"
+        content="Akshay Gowda A M - Data Engineer, Analytics Engineer and Data Analyst. Portfolio showcasing data engineering, analytics, ETL, SQL, Python, Power BI, PySpark, Databricks and BigQuery projects."
+    >
 
-  <meta name="theme-color" content="#070b14">
+    <meta
+        name="keywords"
+        content="Akshay Gowda, Data Engineer, Data Analyst, Analytics Engineer, Python, SQL, Power BI, PySpark, Databricks, BigQuery"
+    >
 
-  <title>Akshay Gowda A M | Data Engineer & Data Analyst</title>
+    <meta name="author" content="Akshay Gowda A M">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Akshay Gowda A M | Data Engineer & Analytics Engineer</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet">
+    <style>
 
-  <style>
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
-    /* =========================================================
-       GLOBAL
-    ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --bg: #070b14;
-      --bg-soft: #0b1120;
-      --card: rgba(15, 23, 42, 0.72);
-      --card-solid: #0f172a;
+        html {
+            scroll-behavior: smooth;
+        }
 
-      --line: rgba(148, 163, 184, 0.16);
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
 
-      --text: #f8fafc;
-      --muted: #94a3b8;
+            background: #070709;
+            color: #f4f4f5;
 
-      --accent: #67e8f9;
-      --accent-2: #818cf8;
+            line-height: 1.6;
 
-      --success: #4ade80;
+            overflow-x: hidden;
+        }
 
-      --max: 1180px;
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-      --radius: 22px;
+        img {
+            max-width: 100%;
+        }
 
-      --shadow:
-        0 24px 70px rgba(0, 0, 0, 0.32);
-    }
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 82px;
-    }
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
 
-    body {
-      font-family: "DM Sans", system-ui, sans-serif;
+        body::before {
+            content: "";
+            position: fixed;
 
-      background:
-        radial-gradient(
-          circle at 80% 5%,
-          rgba(129, 140, 248, 0.14),
-          transparent 30rem
-        ),
-        radial-gradient(
-          circle at 5% 25%,
-          rgba(103, 232, 249, 0.08),
-          transparent 26rem
-        ),
-        var(--bg);
+            top: -300px;
+            left: -200px;
 
-      color: var(--text);
+            width: 700px;
+            height: 700px;
 
-      line-height: 1.7;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124, 58, 237, 0.13),
+                    transparent 65%
+                );
 
-      overflow-x: hidden;
-    }
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        body::after {
+            content: "";
 
-    button {
-      font: inherit;
-    }
+            position: fixed;
 
-    .container {
-      width: min(
-        var(--max),
-        calc(100% - 40px)
-      );
+            right: -250px;
+            top: 300px;
 
-      margin: auto;
-    }
+            width: 650px;
+            height: 650px;
 
-    .section {
-      padding: 105px 0;
-    }
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(6, 182, 212, 0.08),
+                    transparent 65%
+                );
 
-    .section.alt {
-      background: rgba(11, 17, 32, 0.56);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-      border-block:
-        1px solid var(--line);
-    }
 
-    h1,
-    h2,
-    h3 {
-      font-family:
-        "Space Grotesk",
-        sans-serif;
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-      line-height: 1.15;
-    }
+        nav {
+            position: sticky;
+            top: 0;
 
-    .section-head {
-      max-width: 760px;
+            z-index: 1000;
 
-      margin-bottom: 38px;
-    }
+            backdrop-filter: blur(18px);
 
-    .section-head h2 {
-      font-size:
-        clamp(
-          2rem,
-          4vw,
-          3rem
-        );
+            background: rgba(7, 7, 9, 0.78);
 
-      margin: 15px 0 12px;
-    }
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+        }
 
-    .section-head p {
-      color: var(--muted);
-    }
+        .nav-container {
+            width: min(1180px, 92%);
 
-    .eyebrow {
-      display: inline-flex;
+            margin: auto;
 
-      align-items: center;
+            height: 72px;
 
-      gap: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-      padding:
-        7px 12px;
+        .logo {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-      border:
-        1px solid var(--line);
+        .logo span {
+            color: #8b5cf6;
+        }
 
-      border-radius: 999px;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-      color: var(--accent);
+        .nav-links a {
+            font-size: 13px;
 
-      background:
-        rgba(15, 23, 42, 0.6);
+            color: #a1a1aa;
 
-      font-size: 0.82rem;
+            transition: 0.25s ease;
+        }
 
-      font-weight: 700;
-    }
+        .nav-links a:hover {
+            color: white;
+        }
 
-    .eyebrow::before {
-      content: "";
+        .nav-resume {
+            padding: 9px 15px;
 
-      width: 7px;
-      height: 7px;
+            border-radius: 9px;
 
-      border-radius: 50%;
+            background: white;
+            color: #09090b !important;
 
-      background:
-        var(--success);
+            font-weight: 700;
+        }
 
-      box-shadow:
-        0 0 0 5px
-        rgba(74, 222, 128, 0.1);
-    }
 
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
+        .hero {
+            min-height: calc(100vh - 72px);
 
-    header {
-      position: sticky;
+            display: flex;
+            align-items: center;
 
-      top: 0;
+            padding: 80px 0;
+        }
 
-      z-index: 100;
+        .hero-grid {
+            display: grid;
 
-      background:
-        rgba(7, 11, 20, 0.76);
+            grid-template-columns:
+                1.1fr
+                0.9fr;
 
-      backdrop-filter:
-        blur(18px);
+            align-items: center;
 
-      border-bottom:
-        1px solid var(--line);
-    }
+            gap: 80px;
+        }
 
-    .nav {
-      height: 72px;
+        .eyebrow {
+            display: inline-flex;
 
-      display: flex;
+            align-items: center;
 
-      align-items: center;
+            gap: 8px;
 
-      justify-content: space-between;
-    }
+            margin-bottom: 24px;
 
-    .brand {
-      font-family:
-        "Space Grotesk";
+            padding: 7px 12px;
 
-      font-weight: 700;
+            border-radius: 100px;
 
-      font-size: 1.05rem;
-    }
+            background:
+                rgba(139,92,246,0.08);
 
-    .brand span {
-      color: var(--accent);
-    }
+            border:
+                1px solid rgba(139,92,246,0.20);
 
-    .nav-links {
-      display: flex;
+            color: #a78bfa;
 
-      gap: 25px;
+            font-size: 11px;
 
-      list-style: none;
-    }
+            font-weight: 800;
 
-    .nav-links a {
-      color: var(--muted);
+            letter-spacing: 1.5px;
+        }
 
-      font-size: 0.9rem;
+        .eyebrow::before {
+            content: "";
 
-      font-weight: 600;
+            width: 7px;
+            height: 7px;
 
-      transition: 0.2s;
-    }
+            border-radius: 50%;
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+            background: #22c55e;
 
-    .menu-btn {
-      display: none;
+            box-shadow:
+                0 0 12px rgba(34,197,94,0.8);
+        }
 
-      color: var(--text);
+        .hero h1 {
+            font-size:
+                clamp(48px, 6vw, 76px);
 
-      background: transparent;
+            line-height: 1.02;
 
-      border:
-        1px solid var(--line);
+            letter-spacing: -4px;
 
-      border-radius: 10px;
+            margin-bottom: 28px;
+        }
 
-      padding:
-        7px 10px;
+        .gradient-text {
+            background:
+                linear-gradient(
+                    100deg,
+                    #a78bfa,
+                    #8b5cf6,
+                    #22d3ee
+                );
 
-      cursor: pointer;
-    }
+            -webkit-background-clip: text;
+            background-clip: text;
 
+            color: transparent;
+        }
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+        .hero-description {
+            max-width: 650px;
 
-    .hero {
-      min-height:
-        calc(100vh - 72px);
+            color: #a1a1aa;
 
-      display: grid;
+            font-size: 17px;
 
-      align-items: center;
+            line-height: 1.8;
 
-      padding:
-        80px 0 70px;
-    }
+            margin-bottom: 34px;
+        }
 
-    .hero-grid {
-      display: grid;
+        .hero-buttons {
+            display: flex;
 
-      grid-template-columns:
-        1.35fr 0.65fr;
+            gap: 13px;
 
-      gap: 65px;
+            flex-wrap: wrap;
 
-      align-items: center;
-    }
+            margin-bottom: 30px;
+        }
 
-    .hero h1 {
-      font-size:
-        clamp(
-          3.1rem,
-          7vw,
-          6.5rem
-        );
+        .btn {
+            display: inline-flex;
 
-      letter-spacing:
-        -0.055em;
+            align-items: center;
+            justify-content: center;
 
-      margin:
-        20px 0 18px;
-    }
+            gap: 9px;
 
-    .gradient {
-      background:
-        linear-gradient(
-          100deg,
-          var(--accent),
-          #a5b4fc 60%,
-          #c4b5fd
-        );
+            padding: 13px 20px;
 
-      -webkit-background-clip: text;
+            border-radius: 11px;
 
-      background-clip: text;
+            font-size: 13px;
 
-      color: transparent;
-    }
+            font-weight: 750;
 
-    .hero-role {
-      color: #cbd5e1;
+            transition: 0.3s ease;
+        }
 
-      font-size:
-        clamp(
-          1.15rem,
-          2vw,
-          1.45rem
-        );
+        .btn-primary {
+            background: white;
 
-      font-weight: 600;
+            color: #09090b;
+        }
 
-      margin-bottom: 18px;
-    }
+        .btn-primary:hover {
+            transform: translateY(-3px);
 
-    .hero-copy {
-      color: var(--muted);
+            box-shadow:
+                0 15px 40px rgba(255,255,255,0.12);
+        }
 
-      max-width: 700px;
+        .btn-outline {
+            border:
+                1px solid rgba(255,255,255,0.13);
 
-      font-size: 1.04rem;
-    }
+            background:
+                rgba(255,255,255,0.03);
 
-    .hero-copy strong {
-      color: var(--text);
-    }
+            color: white;
+        }
 
-    .actions {
-      display: flex;
+        .btn-outline:hover {
+            background:
+                rgba(255,255,255,0.08);
 
-      flex-wrap: wrap;
+            transform: translateY(-3px);
+        }
 
-      gap: 12px;
+        .social-links {
+            display: flex;
 
-      margin:
-        30px 0 24px;
-    }
+            gap: 23px;
+        }
 
-    .btn {
-      display: inline-flex;
+        .social-links a {
+            color: #71717a;
 
-      align-items: center;
+            font-size: 13px;
 
-      justify-content: center;
+            font-weight: 600;
 
-      gap: 9px;
+            transition: 0.25s ease;
+        }
 
-      padding:
-        12px 18px;
+        .social-links a:hover {
+            color: white;
+        }
 
-      border:
-        1px solid var(--line);
 
-      border-radius: 12px;
+        /* =====================================================
+           PROFILE PHOTO
+        ===================================================== */
 
-      font-weight: 700;
+        .profile-area {
+            position: relative;
 
-      font-size: 0.9rem;
+            display: flex;
 
-      transition: 0.22s;
+            align-items: center;
+            justify-content: center;
 
-      cursor: pointer;
-    }
+            min-height: 530px;
+        }
 
-    .btn:hover {
-      transform:
-        translateY(-2px);
+        .profile-glow {
+            position: absolute;
 
-      border-color:
-        rgba(103, 232, 249, 0.45);
-    }
+            width: 360px;
+            height: 360px;
 
-    .btn.primary {
-      color: #07111b;
+            border-radius: 50%;
 
-      background:
-        linear-gradient(
-          100deg,
-          var(--accent),
-          #a5b4fc
-        );
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(139,92,246,0.28),
+                    rgba(6,182,212,0.10),
+                    transparent 70%
+                );
 
-      border: 0;
-    }
+            filter: blur(20px);
 
-    .btn.secondary {
-      background:
-        rgba(15, 23, 42, 0.7);
-    }
+            animation:
+                glow 5s ease-in-out infinite;
+        }
 
-    .socials {
-      display: flex;
+        @keyframes glow {
 
-      gap: 18px;
+            0%,100% {
+                transform: scale(1);
+                opacity: .75;
+            }
 
-      flex-wrap: wrap;
+            50% {
+                transform: scale(1.12);
+                opacity: 1;
+            }
+        }
 
-      color: var(--muted);
+        .profile-card {
+            position: relative;
 
-      font-size: 0.9rem;
-    }
+            z-index: 2;
 
-    .socials a:hover {
-      color: var(--accent);
-    }
+            width: 335px;
 
+            padding: 12px;
 
-    /* =========================================================
-       HERO CODE CARD
-    ========================================================= */
+            border-radius: 27px;
 
-    .hero-card {
-      position: relative;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.10),
+                    rgba(255,255,255,0.025)
+                );
 
-      padding: 28px;
+            border:
+                1px solid rgba(255,255,255,0.13);
 
-      border:
-        1px solid var(--line);
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.50);
 
-      border-radius: 28px;
+            backdrop-filter: blur(20px);
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(15, 23, 42, 0.88),
-          rgba(15, 23, 42, 0.46)
-        );
+            transition: .4s ease;
+        }
 
-      box-shadow:
-        var(--shadow);
+        .profile-card:hover {
+            transform: translateY(-8px);
 
-      overflow: hidden;
-    }
+            box-shadow:
+                0 45px 110px rgba(0,0,0,0.58);
+        }
 
-    .hero-card::before {
-      content: "";
+        .profile-image-container {
+            width: 100%;
 
-      position: absolute;
+            height: 405px;
 
-      width: 220px;
-      height: 220px;
+            overflow: hidden;
 
-      border-radius: 50%;
+            border-radius: 19px;
 
-      background:
-        rgba(103, 232, 249, 0.12);
+            background: #18181b;
+        }
 
-      filter: blur(40px);
+        .profile-image {
+            width: 100%;
+            height: 100%;
 
-      top: -100px;
-      right: -70px;
-    }
+            object-fit: cover;
 
-    .code-window {
-      position: relative;
+            object-position: center top;
 
-      border:
-        1px solid var(--line);
+            display: block;
 
-      border-radius: 17px;
+            transition: transform .5s ease;
+        }
 
-      overflow: hidden;
+        .profile-card:hover .profile-image {
+            transform: scale(1.035);
+        }
 
-      background: #080d18;
-    }
+        .profile-info {
+            padding: 17px 8px 8px;
+        }
 
-    .window-bar {
-      display: flex;
+        .profile-info h2 {
+            font-size: 20px;
 
-      gap: 7px;
+            margin-bottom: 3px;
+        }
 
-      padding: 12px 14px;
+        .profile-info p {
+            font-size: 12px;
 
-      border-bottom:
-        1px solid var(--line);
-    }
+            color: #a1a1aa;
 
-    .dot {
-      width: 8px;
-      height: 8px;
+            margin-bottom: 12px;
+        }
 
-      border-radius: 50%;
+        .availability {
+            display: flex;
 
-      background: #475569;
-    }
+            align-items: center;
 
-    .code {
-      padding: 22px;
+            gap: 7px;
 
-      font:
-        0.82rem/1.85
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        monospace;
+            color: #d4d4d8;
 
-      color: #cbd5e1;
-    }
+            font-size: 11px;
 
-    .code .k {
-      color: #67e8f9;
-    }
+            font-weight: 600;
+        }
 
-    .code .s {
-      color: #a5b4fc;
-    }
+        .availability-dot {
+            width: 7px;
+            height: 7px;
 
-    .code .v {
-      color: #86efac;
-    }
+            border-radius: 50%;
 
-    .availability {
-      display: flex;
+            background: #22c55e;
 
-      align-items: center;
+            box-shadow:
+                0 0 10px rgba(34,197,94,.8);
+        }
 
-      gap: 8px;
+        .floating {
+            position: absolute;
 
-      color: #cbd5e1;
+            z-index: 5;
 
-      font-size: 0.84rem;
+            padding: 12px 15px;
 
-      margin-top: 18px;
-    }
+            border-radius: 13px;
 
-    .availability i {
-      width: 8px;
-      height: 8px;
+            background:
+                rgba(18,18,22,.88);
 
-      border-radius: 50%;
+            border:
+                1px solid rgba(255,255,255,.10);
 
-      background:
-        var(--success);
-    }
+            backdrop-filter: blur(15px);
 
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.35);
+        }
 
-    /* =========================================================
-       PROOF / STATS
-    ========================================================= */
+        .floating strong {
+            display: block;
 
-    .proof-grid {
-      display: grid;
+            font-size: 12px;
+        }
 
-      grid-template-columns:
-        repeat(4, 1fr);
+        .floating span {
+            display: block;
 
-      gap: 15px;
-    }
+            color: #71717a;
 
-    .proof {
-      padding: 24px;
+            font-size: 10px;
+        }
 
-      border:
-        1px solid var(--line);
+        .floating-one {
+            left: -10px;
+            top: 95px;
 
-      border-radius: 18px;
+            animation:
+                float1 4s ease-in-out infinite;
+        }
 
-      background:
-        rgba(15, 23, 42, 0.55);
-    }
+        .floating-two {
+            right: -15px;
+            bottom: 105px;
 
-    .proof strong {
-      display: block;
+            animation:
+                float2 4.5s ease-in-out infinite;
+        }
 
-      font:
-        700 1.6rem
-        "Space Grotesk";
+        @keyframes float1 {
 
-      color: var(--text);
+            0%,100% {
+                transform: translateY(0);
+            }
 
-      margin-bottom: 4px;
-    }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
 
-    .proof span {
-      color: var(--muted);
+        @keyframes float2 {
 
-      font-size: 0.86rem;
-    }
+            0%,100% {
+                transform: translateY(0);
+            }
 
+            50% {
+                transform: translateY(12px);
+            }
+        }
 
-    /* =========================================================
-       CARDS
-    ========================================================= */
 
-    .grid {
-      display: grid;
+        /* =====================================================
+           SECTION
+        ===================================================== */
 
-      grid-template-columns:
-        repeat(2, 1fr);
+        section:not(.hero) {
+            padding: 105px 0;
+        }
 
-      gap: 20px;
-    }
+        .section-heading {
+            max-width: 720px;
 
-    .card {
-      border:
-        1px solid var(--line);
+            margin-bottom: 45px;
+        }
 
-      border-radius:
-        var(--radius);
+        .section-label {
+            color: #8b5cf6;
 
-      background:
-        var(--card);
+            font-size: 11px;
 
-      padding: 28px;
+            font-weight: 800;
 
-      transition: 0.25s;
+            letter-spacing: 2px;
 
-      box-shadow:
-        0 10px 40px
-        rgba(0, 0, 0, 0.08);
-    }
+            margin-bottom: 10px;
+        }
 
-    .card:hover {
-      transform:
-        translateY(-5px);
+        .section-heading h2 {
+            font-size: 42px;
 
-      border-color:
-        rgba(103, 232, 249, 0.35);
+            letter-spacing: -1.8px;
 
-      box-shadow:
-        var(--shadow);
-    }
+            margin-bottom: 12px;
+        }
 
-    .card-top {
-      display: flex;
+        .section-heading p {
+            color: #71717a;
 
-      justify-content:
-        space-between;
+            font-size: 15px;
+        }
 
-      gap: 20px;
 
-      align-items:
-        flex-start;
-    }
+        /* =====================================================
+           STATS
+        ===================================================== */
 
-    .card h3 {
-      font-size: 1.35rem;
+        .stats {
+            display: grid;
 
-      margin-bottom: 8px;
-    }
+            grid-template-columns:
+                repeat(4, 1fr);
 
-    .number {
-      color: #64748b;
+            gap: 14px;
+        }
 
-      font:
-        700 1rem
-        "Space Grotesk";
-    }
+        .stat-card {
+            padding: 26px;
 
-    .stack {
-      color: var(--accent);
+            border-radius: 17px;
 
-      font-size: 0.82rem;
+            background:
+                rgba(255,255,255,0.025);
 
-      font-weight: 700;
+            border:
+                1px solid rgba(255,255,255,.07);
 
-      margin:
-        13px 0 17px;
-    }
+            transition: .3s ease;
+        }
 
-    .card p {
-      color: var(--muted);
+        .stat-card:hover {
+            transform: translateY(-5px);
 
-      font-size: 0.93rem;
-    }
+            border-color:
+                rgba(139,92,246,.25);
+        }
 
-    .card ul {
-      color: var(--muted);
+        .stat-number {
+            font-size: 30px;
 
-      padding-left: 18px;
+            font-weight: 800;
 
-      margin: 17px 0;
+            margin-bottom: 4px;
+        }
 
-      font-size: 0.91rem;
-    }
+        .stat-title {
+            color: #a1a1aa;
 
-    .card li {
-      margin-bottom: 8px;
-    }
+            font-size: 12px;
+        }
 
-    .card li strong {
-      color: #e2e8f0;
-    }
 
-    .tags {
-      display: flex;
+        /* =====================================================
+           ABOUT
+        ===================================================== */
 
-      flex-wrap: wrap;
+        .about-grid {
+            display: grid;
 
-      gap: 7px;
+            grid-template-columns:
+                1fr 1fr;
 
-      margin-top: 18px;
-    }
+            gap: 18px;
+        }
 
-    .tag {
-      padding:
-        5px 10px;
+        .about-card {
+            padding: 30px;
 
-      border:
-        1px solid var(--line);
+            border-radius: 18px;
 
-      border-radius: 999px;
+            background:
+                rgba(255,255,255,0.025);
 
-      background:
-        rgba(2, 6, 23, 0.32);
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
 
-      color: #cbd5e1;
+        .about-card h3 {
+            font-size: 19px;
 
-      font-size: 0.76rem;
-    }
+            margin-bottom: 14px;
+        }
 
-    .card-links {
-      display: flex;
+        .about-card p {
+            color: #a1a1aa;
 
-      gap: 10px;
+            font-size: 14px;
 
-      margin-top: 21px;
+            line-height: 1.8;
+        }
 
-      flex-wrap: wrap;
-    }
 
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
 
-    /* =========================================================
-       EXPERIENCE
-    ========================================================= */
+        .projects {
+            display: grid;
 
-    .timeline {
-      position: relative;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-      display: grid;
+            gap: 18px;
+        }
 
-      gap: 18px;
-    }
+        .project-card {
+            padding: 30px;
 
-    .timeline::before {
-      content: "";
+            border-radius: 19px;
 
-      position: absolute;
+            background:
+                rgba(255,255,255,0.025);
 
-      left: 9px;
+            border:
+                1px solid rgba(255,255,255,.07);
 
-      top: 12px;
+            transition: .35s ease;
+        }
 
-      bottom: 12px;
+        .project-card:hover {
+            transform: translateY(-7px);
 
-      width: 1px;
+            border-color:
+                rgba(139,92,246,.28);
 
-      background:
-        var(--line);
-    }
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.25);
+        }
 
-    .experience {
-      position: relative;
+        .project-top {
+            display: flex;
 
-      padding-left: 38px;
-    }
+            justify-content: space-between;
 
-    .experience::before {
-      content: "";
+            gap: 20px;
 
-      position: absolute;
+            margin-bottom: 18px;
+        }
 
-      left: 3px;
+        .project-number {
+            color: #71717a;
 
-      top: 8px;
+            font-size: 12px;
+        }
 
-      width: 13px;
-      height: 13px;
+        .project-card h3 {
+            font-size: 21px;
 
-      border-radius: 50%;
+            margin-bottom: 8px;
+        }
 
-      background:
-        var(--accent);
+        .project-card p {
+            color: #a1a1aa;
 
-      box-shadow:
-        0 0 0 6px
-        rgba(103, 232, 249, 0.08);
-    }
+            font-size: 13px;
 
-    .experience-card {
-      padding:
-        25px 28px;
+            line-height: 1.75;
 
-      border:
-        1px solid var(--line);
+            margin-bottom: 20px;
+        }
 
-      border-radius: 18px;
+        .tech-stack {
+            display: flex;
 
-      background:
-        rgba(15, 23, 42, 0.6);
-    }
+            flex-wrap: wrap;
 
-    .meta {
-      color: var(--accent);
+            gap: 7px;
 
-      font-size: 0.84rem;
+            margin-bottom: 22px;
+        }
 
-      font-weight: 700;
+        .tech {
+            padding: 5px 9px;
 
-      margin:
-        6px 0 14px;
-    }
+            border-radius: 7px;
 
-    .experience-card ul {
-      padding-left: 18px;
+            background:
+                rgba(139,92,246,.08);
 
-      color: var(--muted);
+            border:
+                1px solid rgba(139,92,246,.14);
 
-      font-size: 0.92rem;
-    }
+            color: #c4b5fd;
 
+            font-size: 10px;
 
-    /* =========================================================
-       SKILLS
-    ========================================================= */
+            font-weight: 700;
+        }
 
-    .skills {
-      display: grid;
+        .project-link {
+            color: white;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+            font-size: 12px;
 
-      gap: 16px;
-    }
+            font-weight: 700;
+        }
 
-    .skill-card {
-      padding: 22px;
+        .project-link:hover {
+            color: #a78bfa;
+        }
 
-      border:
-        1px solid var(--line);
 
-      border-radius: 17px;
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
 
-      background:
-        rgba(15, 23, 42, 0.5);
-    }
+        .experience {
+            display: flex;
 
-    .skill-card h3 {
-      font-size: 1rem;
+            flex-direction: column;
 
-      margin-bottom: 14px;
-    }
+            gap: 16px;
+        }
 
-    .skill-list {
-      display: flex;
+        .experience-card {
+            padding: 28px;
 
-      flex-wrap: wrap;
+            border-radius: 18px;
 
-      gap: 7px;
-    }
+            background:
+                rgba(255,255,255,.025);
 
-    .skill-list span {
-      padding:
-        6px 9px;
+            border:
+                1px solid rgba(255,255,255,.07);
 
-      border-radius: 8px;
+            display: grid;
 
-      background:
-        #111c31;
+            grid-template-columns:
+                220px 1fr;
 
-      color: #cbd5e1;
+            gap: 35px;
+        }
 
-      font-size: 0.78rem;
-    }
+        .experience-date {
+            color: #71717a;
 
+            font-size: 12px;
+        }
 
-    /* =========================================================
-       PROCESS
-    ========================================================= */
+        .experience-card h3 {
+            font-size: 19px;
 
-    .process {
-      display: grid;
+            margin-bottom: 4px;
+        }
 
-      grid-template-columns:
-        repeat(4, 1fr);
+        .company {
+            color: #a78bfa;
 
-      gap: 15px;
-    }
+            font-size: 13px;
 
-    .process-step {
-      padding: 24px;
+            font-weight: 700;
 
-      border-top:
-        2px solid var(--accent);
+            margin-bottom: 12px;
+        }
 
-      background:
-        rgba(15, 23, 42, 0.48);
+        .experience-card p {
+            color: #a1a1aa;
 
-      border-radius:
-        0 0 16px 16px;
-    }
+            font-size: 13px;
 
-    .process-step b {
-      color: var(--accent);
+            line-height: 1.75;
+        }
 
-      font:
-        700 0.8rem
-        "Space Grotesk";
-    }
 
-    .process-step h3 {
-      font-size: 1.05rem;
+        /* =====================================================
+           SKILLS
+        ===================================================== */
 
-      margin: 9px 0;
-    }
+        .skills-grid {
+            display: grid;
 
-    .process-step p {
-      color: var(--muted);
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      font-size: 0.86rem;
-    }
+            gap: 15px;
+        }
 
+        .skill-card {
+            padding: 24px;
 
-    /* =========================================================
-       CERTIFICATIONS
-    ========================================================= */
+            border-radius: 17px;
 
-    .cert-grid {
-      display: grid;
+            background:
+                rgba(255,255,255,.025);
 
-      grid-template-columns:
-        repeat(2, 1fr);
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
 
-      gap: 12px;
-    }
+        .skill-card h3 {
+            font-size: 15px;
 
-    .cert {
-      padding:
-        18px 20px;
+            margin-bottom: 15px;
+        }
 
-      border:
-        1px solid var(--line);
+        .skill-list {
+            display: flex;
 
-      border-radius: 14px;
+            flex-wrap: wrap;
 
-      background:
-        rgba(15, 23, 42, 0.5);
+            gap: 7px;
+        }
 
-      color: #cbd5e1;
-    }
+        .skill {
+            padding: 6px 9px;
 
-    .cert::before {
-      content: "✓";
+            border-radius: 7px;
 
-      color:
-        var(--success);
+            background: #111114;
 
-      font-weight: 800;
+            color: #a1a1aa;
 
-      margin-right: 10px;
-    }
+            font-size: 10px;
 
+            border:
+                1px solid rgba(255,255,255,.06);
+        }
 
-    /* =========================================================
-       CONTACT
-    ========================================================= */
 
-    .contact-box {
-      text-align: center;
+        /* =====================================================
+           WORKFLOW
+        ===================================================== */
 
-      padding:
-        70px 25px;
+        .workflow {
+            display: grid;
 
-      border:
-        1px solid var(--line);
+            grid-template-columns:
+                repeat(4,1fr);
 
-      border-radius: 28px;
+            gap: 12px;
+        }
 
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(103, 232, 249, 0.11),
-          transparent 28rem
-        ),
-        rgba(15, 23, 42, 0.58);
-    }
+        .workflow-card {
+            padding: 24px;
 
-    .contact-box h2 {
-      font-size:
-        clamp(
-          2rem,
-          4vw,
-          3.2rem
-        );
+            border-radius: 16px;
 
-      margin:
-        14px 0;
-    }
+            background:
+                rgba(255,255,255,.025);
 
-    .contact-box p {
-      max-width: 650px;
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
 
-      margin: 0 auto;
+        .workflow-number {
+            color: #8b5cf6;
 
-      color: var(--muted);
-    }
+            font-size: 11px;
 
+            font-weight: 800;
 
-    /* =========================================================
-       FOOTER
-    ========================================================= */
+            margin-bottom: 10px;
+        }
 
-    footer {
-      padding: 28px 0;
+        .workflow-card h3 {
+            font-size: 16px;
 
-      border-top:
-        1px solid var(--line);
+            margin-bottom: 7px;
+        }
 
-      color: #64748b;
+        .workflow-card p {
+            color: #71717a;
 
-      font-size: 0.82rem;
-    }
+            font-size: 11px;
+        }
 
-    .footer-row {
-      display: flex;
 
-      justify-content:
-        space-between;
+        /* =====================================================
+           CERTIFICATIONS
+        ===================================================== */
 
-      gap: 15px;
+        .certifications {
+            display: grid;
 
-      flex-wrap: wrap;
-    }
+            grid-template-columns:
+                repeat(2,1fr);
 
+            gap: 14px;
+        }
 
-    /* =========================================================
-       ANIMATION
-    ========================================================= */
+        .cert-card {
+            padding: 20px;
 
-    .reveal {
-      opacity: 0;
+            border-radius: 15px;
 
-      transform:
-        translateY(16px);
+            border:
+                1px solid rgba(255,255,255,.07);
 
-      transition:
-        0.65s ease;
-    }
+            background:
+                rgba(255,255,255,.025);
 
-    .reveal.show {
-      opacity: 1;
+            color: #d4d4d8;
 
-      transform: none;
-    }
+            font-size: 13px;
+        }
 
+        .cert-card span {
+            display: block;
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+            color: #71717a;
 
-    @media (max-width: 900px) {
+            font-size: 11px;
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
+            margin-top: 5px;
+        }
 
-      .hero-card {
-        max-width: 650px;
-      }
 
-      .proof-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
+        /* =====================================================
+           CONTACT
+        ===================================================== */
 
-      .skills {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
+        .contact {
+            text-align: center;
 
-      .process {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
+            padding-bottom: 130px !important;
+        }
 
-    }
+        .contact-box {
+            max-width: 800px;
 
+            margin: auto;
 
-    @media (max-width: 700px) {
+            padding: 55px 30px;
 
-      .container {
-        width:
-          min(
-            100% - 28px,
-            var(--max)
-          );
-      }
+            border-radius: 24px;
 
-      .section {
-        padding:
-          78px 0;
-      }
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(139,92,246,.10),
+                    rgba(6,182,212,.04)
+                );
 
-      .nav-links {
-        display: none;
+            border:
+                1px solid rgba(139,92,246,.15);
+        }
 
-        position: absolute;
+        .contact-box h2 {
+            font-size: 42px;
 
-        top: 72px;
+            letter-spacing: -1.5px;
 
-        left: 0;
-        right: 0;
+            margin-bottom: 12px;
+        }
 
-        flex-direction: column;
+        .contact-box p {
+            color: #a1a1aa;
 
-        gap: 0;
+            font-size: 14px;
 
-        padding:
-          8px 14px 14px;
+            margin-bottom: 25px;
+        }
 
-        background:
-          rgba(7, 11, 20, 0.98);
+        .contact-links {
+            display: flex;
 
-        border-bottom:
-          1px solid var(--line);
-      }
+            justify-content: center;
 
-      .nav-links.open {
-        display: flex;
-      }
+            flex-wrap: wrap;
 
-      .nav-links a {
-        display: block;
+            gap: 10px;
+        }
 
-        padding: 11px;
-      }
 
-      .menu-btn {
-        display: block;
-      }
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
-      .hero {
-        padding-top: 58px;
-      }
+        footer {
+            border-top:
+                1px solid rgba(255,255,255,.07);
 
-      .hero h1 {
-        font-size:
-          clamp(
-            2.8rem,
-            15vw,
-            4.4rem
-          );
-      }
+            padding: 28px 0;
 
-      .grid,
-      .skills,
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
+            color: #52525b;
 
-      .proof-grid {
-        grid-template-columns:
-          1fr 1fr;
-      }
+            font-size: 11px;
 
-      .process {
-        grid-template-columns: 1fr;
-      }
+            text-align: center;
+        }
 
-    }
 
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
-    @media (prefers-reduced-motion: reduce) {
+        @media (max-width: 900px) {
 
-      html {
-        scroll-behavior: auto;
-      }
+            .nav-links {
+                display: none;
+            }
 
-      .reveal {
-        opacity: 1;
+            .hero {
+                padding: 70px 0;
+            }
 
-        transform: none;
+            .hero-grid {
+                grid-template-columns: 1fr;
 
-        transition: none;
-      }
+                text-align: center;
 
-      .card,
-      .btn {
-        transition: none;
-      }
+                gap: 60px;
+            }
 
-    }
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-  </style>
+            .hero-buttons,
+            .social-links {
+                justify-content: center;
+            }
+
+            .profile-area {
+                min-height: 470px;
+            }
+
+            .stats {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .workflow {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .hero h1 {
+                font-size: 44px;
+
+                letter-spacing: -2.5px;
+            }
+
+            .profile-card {
+                width: 290px;
+            }
+
+            .profile-image-container {
+                height: 350px;
+            }
+
+            .floating-one {
+                left: 0;
+            }
+
+            .floating-two {
+                right: 0;
+            }
+
+            .about-grid,
+            .projects,
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2,
+            .contact-box h2 {
+                font-size: 34px;
+            }
+        }
+
+
+        @media (max-width: 430px) {
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .profile-card {
+                width: 265px;
+            }
+
+            .profile-image-container {
+                height: 320px;
+            }
+
+            .floating {
+                padding: 9px 11px;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
 
-  <!-- =======================================================
-       NAVIGATION
-  ======================================================== -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-  <header>
+<nav>
 
-    <div class="container nav">
+    <div class="nav-container">
 
-      <a
-        class="brand"
-        href="#top"
-      >
-        Akshay <span>Gowda A M</span>
-      </a>
+        <a href="#home" class="logo">
+            AG<span>.</span>
+        </a>
 
+        <div class="nav-links">
 
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Open navigation"
-      >
-        ☰
-      </button>
+            <a href="#about">About</a>
 
+            <a href="#projects">Projects</a>
 
-      <nav>
+            <a href="#experience">Experience</a>
 
-        <ul
-          class="nav-links"
-          id="navLinks"
-        >
+            <a href="#skills">Skills</a>
 
-          <li>
-            <a href="#about">
-              About
+            <a href="#contact">Contact</a>
+
+            <a
+                href="Akshay_Gowda_AM_Data_Engineer_Resume.pdf"
+                target="_blank"
+                class="nav-resume"
+            >
+                Resume
             </a>
-          </li>
 
-          <li>
-            <a href="#projects">
-              Projects
-            </a>
-          </li>
-
-          <li>
-            <a href="#experience">
-              Experience
-            </a>
-          </li>
-
-          <li>
-            <a href="#skills">
-              Skills
-            </a>
-          </li>
-
-          <li>
-            <a href="#certifications">
-              Certifications
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact">
-              Contact
-            </a>
-          </li>
-
-        </ul>
-
-      </nav>
+        </div>
 
     </div>
 
-  </header>
+</nav>
 
 
-  <main id="top">
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section class="hero">
-
-      <div class="container hero-grid">
-
+        <!-- LEFT -->
 
         <div>
 
-          <span class="eyebrow">
-            MCA Graduate · Bengaluru, India
-          </span>
-
-
-          <h1>
-
-            Building
-            <span class="gradient">
-              data systems
-            </span>
-
-            that make analytics useful.
-
-          </h1>
-
-
-          <div class="hero-role">
-
-            Data Engineer · Data Analyst · Analytics Engineering
-
-          </div>
-
-
-          <p class="hero-copy">
-
-            I work across the data lifecycle —
-            <strong>
-              SQL, Python, ETL, data modeling, PySpark,
-              Databricks, BigQuery and BI
-            </strong>
-            —
-            turning raw data into reliable datasets,
-            pipelines and decision-ready dashboards.
-
-          </p>
-
-
-          <div class="actions">
-
-            <a
-              class="btn primary"
-              href="#projects"
-            >
-              Explore my work →
-            </a>
-
-
-            <a
-              class="btn secondary"
-              href="Akshay_Gowda_AM_Data_Engineer_Resume.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              View Resume ↗
-            </a>
-
-          </div>
-
-
-          <div class="socials">
-
-            <a
-              href="https://github.com/AkshayGowda45"
-              target="_blank"
-              rel="noopener"
-            >
-              GitHub ↗
-            </a>
-
-
-            <a
-              href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/"
-              target="_blank"
-              rel="noopener"
-            >
-              LinkedIn ↗
-            </a>
-
-
-            <a href="mailto:amgowda74@gmail.com">
-              amgowda74@gmail.com
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- CODE CARD -->
-
-        <div class="hero-card">
-
-          <div class="code-window">
-
-            <div class="window-bar">
-
-              <i class="dot"></i>
-              <i class="dot"></i>
-              <i class="dot"></i>
-
+            <div class="eyebrow">
+                OPEN TO DATA ENGINEERING OPPORTUNITIES
             </div>
 
 
-            <div class="code">
+            <h1>
 
-              <div>
-                <span class="k">
-                  pipeline
+                Building data systems
+                that make
+
+                <span class="gradient-text">
+                    analytics useful.
                 </span>
-                =
-                {
-              </div>
 
+            </h1>
 
-              <div>
-                &nbsp;&nbsp;
-                <span class="s">
-                  "ingest"
-                </span>:
-                <span class="v">
-                  "BigQuery / APIs / files"
-                </span>,
-              </div>
 
+            <p class="hero-description">
 
-              <div>
-                &nbsp;&nbsp;
-                <span class="s">
-                  "transform"
-                </span>:
-                <span class="v">
-                  "SQL + PySpark"
-                </span>,
-              </div>
-
-
-              <div>
-                &nbsp;&nbsp;
-                <span class="s">
-                  "model"
-                </span>:
-                <span class="v">
-                  "Star schema"
-                </span>,
-              </div>
-
-
-              <div>
-                &nbsp;&nbsp;
-                <span class="s">
-                  "validate"
-                </span>:
-                <span class="v">
-                  "Data quality checks"
-                </span>,
-              </div>
-
-
-              <div>
-                &nbsp;&nbsp;
-                <span class="s">
-                  "serve"
-                </span>:
-                <span class="v">
-                  "Power BI / Looker"
-                </span>
-              </div>
-
-
-              <div>
-                }
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="availability">
-
-            <i></i>
-
-            Open to Data Engineer &
-            Data Analyst opportunities
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         PROOF
-    ====================================================== -->
-
-    <section
-      class="section"
-      style="padding-top:20px;"
-    >
-
-      <div class="container">
-
-        <div class="proof-grid reveal">
-
-
-          <div class="proof">
-
-            <strong>
-              1 year
-            </strong>
-
-            <span>
-              Hands-on internship experience
-              across data & ML
-            </span>
-
-          </div>
-
-
-          <div class="proof">
-
-            <strong>
-              End-to-end
-            </strong>
-
-            <span>
-              ETL → modeling → analytics →
-              dashboards
-            </span>
-
-          </div>
-
-
-          <div class="proof">
-
-            <strong>
-              4+
-            </strong>
-
-            <span>
-              Portfolio projects across
-              data & analytics
-            </span>
-
-          </div>
-
-
-          <div class="proof">
-
-            <strong>
-              MCA 2026
-            </strong>
-
-            <span>
-              SJB Institute of Technology,
-              Bengaluru
-            </span>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
-
-    <section
-      class="section alt"
-      id="about"
-    >
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            ABOUT
-          </span>
-
-
-          <h2>
-            From raw data to business decisions.
-          </h2>
-
-
-          <p>
-
-            My focus is not just writing queries
-            or building dashboards.
-
-            I enjoy designing the layer between
-            messy source data and the people who
-            need trustworthy answers.
-
-          </p>
-
-        </div>
-
-
-        <div class="grid">
-
-
-          <article class="card reveal">
-
-            <h3>
-              What I build
-            </h3>
-
-
-            <p>
-
-              Reusable ETL workflows,
-              SQL transformations,
-              dimensional models,
-              data-quality checks,
-              analytics datasets and
-              executive dashboards.
+                MCA graduate with 1 year of hands-on internship
+                experience in data analytics and machine learning.
+                I build data pipelines, transform raw data into
+                reliable datasets, and turn analytics into
+                business-ready insights.
 
             </p>
 
 
-            <div class="tags">
+            <div class="hero-buttons">
 
-              <span class="tag">
-                ETL
-              </span>
+                <a
+                    href="#projects"
+                    class="btn btn-primary"
+                >
+                    Explore My Work
+                    →
+                </a>
 
-              <span class="tag">
-                Data Modeling
-              </span>
 
-              <span class="tag">
-                SQL
-              </span>
+                <!-- RESUME BUTTON -->
 
-              <span class="tag">
-                PySpark
-              </span>
-
-              <span class="tag">
-                BigQuery
-              </span>
-
-              <span class="tag">
-                Power BI
-              </span>
+                <a
+                    href="Akshay_Gowda_AM_Data_Engineer_Resume.pdf"
+                    target="_blank"
+                    class="btn btn-outline"
+                >
+                    View Data Engineer Resume
+                </a>
 
             </div>
 
-          </article>
 
+            <div class="social-links">
 
-          <article class="card reveal">
+                <a
+                    href="https://github.com/AkshayGowda45"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
 
-            <h3>
-              How I think
-            </h3>
+                <a
+                    href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
 
-
-            <p>
-
-              Start with the business question,
-              define the metric clearly,
-              trace it to the source,
-              validate the data,
-              automate repeatable work,
-              and communicate the result simply.
-
-            </p>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                Data Quality
-              </span>
-
-              <span class="tag">
-                KPI Design
-              </span>
-
-              <span class="tag">
-                Root Cause Analysis
-              </span>
-
-              <span class="tag">
-                Automation
-              </span>
+                <a
+                    href="mailto:amgowda74@gmail.com"
+                >
+                    Email
+                </a>
 
             </div>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         PROJECTS
-    ====================================================== -->
-
-    <section
-      class="section"
-      id="projects"
-    >
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            SELECTED WORK
-          </span>
-
-
-          <h2>
-            Projects built around real data problems.
-          </h2>
-
-
-          <p>
-
-            Practical projects showing
-            engineering, analytics and
-            business thinking.
-
-          </p>
 
         </div>
 
 
-        <div class="grid">
+
+        <!-- RIGHT - PHOTO -->
+
+        <div class="profile-area">
+
+            <div class="profile-glow"></div>
 
 
-          <!-- QUICKCOMMERCE -->
+            <div class="floating floating-one">
 
-          <article class="card reveal">
+                <strong>SQL</strong>
 
-            <div class="card-top">
+                <span>Data Analytics</span>
 
-              <div>
+            </div>
 
-                <h3>
-                  QuickCommerce360
-                </h3>
 
-                <div class="stack">
+            <div class="floating floating-two">
 
-                  PySpark · Databricks · SQL ·
-                  Power BI · ETL
+                <strong>Python</strong>
+
+                <span>Data Engineering</span>
+
+            </div>
+
+
+            <div class="profile-card">
+
+
+                <div class="profile-image-container">
+
+                    <!-- YOUR PHOTO -->
+
+                    <img
+                        src="mypic.jpeg"
+                        alt="Akshay Gowda A M"
+                        class="profile-image"
+                    >
 
                 </div>
 
-              </div>
 
+                <div class="profile-info">
 
-              <span class="number">
-                01
-              </span>
+                    <h2>
+                        Akshay Gowda A M
+                    </h2>
 
-            </div>
+                    <p>
+                        Data Engineer · Analytics Engineer
+                    </p>
 
+                    <div class="availability">
 
-            <p>
+                        <span class="availability-dot"></span>
 
-              Enterprise-style quick-commerce
-              data intelligence platform covering
-              ingestion, transformation, data
-              modeling and BI.
+                        Open to opportunities
 
-            </p>
-
-
-            <ul>
-
-              <li>
-                Built an
-                <strong>
-                  ETL workflow
-                </strong>
-                for orders, customers
-                and marketing data.
-              </li>
-
-
-              <li>
-
-                Designed a
-                <strong>
-                  star schema
-                </strong>
-                for analytics.
-
-              </li>
-
-
-              <li>
-
-                Created KPI workflows for
-                <strong>
-                  RFM, revenue, delivery
-                  performance and marketing ROI
-                </strong>.
-
-              </li>
-
-
-              <li>
-
-                Delivered Power BI dashboards
-                on analysis-ready data.
-
-              </li>
-
-            </ul>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                Data Warehouse
-              </span>
-
-              <span class="tag">
-                RFM
-              </span>
-
-              <span class="tag">
-                DAX
-              </span>
-
-              <span class="tag">
-                Git
-              </span>
-
-            </div>
-
-
-            <div class="card-links">
-
-              <a
-                class="btn secondary"
-                href="https://github.com/AkshayGowda45"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub ↗
-              </a>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- EZYGAMERS -->
-
-          <article class="card reveal">
-
-            <div class="card-top">
-
-              <div>
-
-                <h3>
-                  EzyGamers Analytics
-                </h3>
-
-                <div class="stack">
-
-                  GA4 · BigQuery · SQL ·
-                  Looker Studio · Analytics Engineering
+                    </div>
 
                 </div>
 
-              </div>
-
-
-              <span class="number">
-                02
-              </span>
-
             </div>
-
-
-            <p>
-
-              Product analytics pipeline for a
-              gaming platform, connecting player
-              behavior data to executive-level
-              product insights.
-
-            </p>
-
-
-            <ul>
-
-              <li>
-
-                Modeled
-                <strong>
-                  GA4 data in BigQuery
-                </strong>
-                for reusable analysis.
-
-              </li>
-
-
-              <li>
-
-                Built reporting around users,
-                sessions, page views and
-                game engagement.
-
-              </li>
-
-
-              <li>
-
-                Analyzed
-                <strong>
-                  game starts, completions
-                  and drop-offs
-                </strong>
-                to identify UX and loading friction.
-
-              </li>
-
-
-              <li>
-
-                Designed an executive dashboard
-                with date filters and diagnostics.
-
-              </li>
-
-            </ul>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                GA4
-              </span>
-
-              <span class="tag">
-                BigQuery
-              </span>
-
-              <span class="tag">
-                Funnels
-              </span>
-
-              <span class="tag">
-                Looker Studio
-              </span>
-
-            </div>
-
-
-            <div class="card-links">
-
-              <a
-                class="btn secondary"
-                href="https://ezygamers-dashboard.vercel.app"
-                target="_blank"
-                rel="noopener"
-              >
-                Live Dashboard ↗
-              </a>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- ANOMAI -->
-
-          <article class="card reveal">
-
-            <div class="card-top">
-
-              <div>
-
-                <h3>
-                  AnomAI
-                </h3>
-
-                <div class="stack">
-
-                  Python · ML · IoT ·
-                  Scikit-learn · TensorFlow
-
-                </div>
-
-              </div>
-
-
-              <span class="number">
-                03
-              </span>
-
-            </div>
-
-
-            <p>
-
-              AI-driven industrial IoT anomaly
-              detection and real-time monitoring
-              system developed as the MCA capstone.
-
-            </p>
-
-
-            <ul>
-
-              <li>
-
-                Worked with sensor-oriented data
-                for
-                <strong>
-                  anomaly detection
-                </strong>.
-
-              </li>
-
-
-              <li>
-
-                Applied machine-learning techniques
-                to identify abnormal patterns.
-
-              </li>
-
-
-              <li>
-
-                Designed the solution around
-                monitoring, detection and
-                actionable alerts.
-
-              </li>
-
-            </ul>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                Machine Learning
-              </span>
-
-              <span class="tag">
-                IoT
-              </span>
-
-              <span class="tag">
-                Anomaly Detection
-              </span>
-
-              <span class="tag">
-                Python
-              </span>
-
-            </div>
-
-
-            <div class="card-links">
-
-              <a
-                class="btn secondary"
-                href="https://github.com/AkshayGowda45"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub ↗
-              </a>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- RETAIL -->
-
-          <article class="card reveal">
-
-            <div class="card-top">
-
-              <div>
-
-                <h3>
-                  Retail Sales Analytics
-                </h3>
-
-                <div class="stack">
-
-                  Python · Pandas · SQL ·
-                  MySQL · Power BI
-
-                </div>
-
-              </div>
-
-
-              <span class="number">
-                04
-              </span>
-
-            </div>
-
-
-            <p>
-
-              End-to-end retail analytics workflow
-              focused on cleaning, SQL analysis,
-              KPI reporting and business insights.
-
-            </p>
-
-
-            <ul>
-
-              <li>
-
-                Cleaned and transformed structured
-                sales data using
-                <strong>
-                  Python/Pandas
-                </strong>.
-
-              </li>
-
-
-              <li>
-
-                Used JOINs, CTEs and window
-                functions for analysis.
-
-              </li>
-
-
-              <li>
-
-                Created dashboards for
-                <strong>
-                  sales, customer and product
-                  performance
-                </strong>.
-
-              </li>
-
-            </ul>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                SQL
-              </span>
-
-              <span class="tag">
-                MySQL
-              </span>
-
-              <span class="tag">
-                Pandas
-              </span>
-
-              <span class="tag">
-                Power BI
-              </span>
-
-            </div>
-
-
-            <div class="card-links">
-
-              <a
-                class="btn secondary"
-                href="https://github.com/AkshayGowda45"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub ↗
-              </a>
-
-            </div>
-
-          </article>
-
 
         </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         EXPERIENCE
-    ====================================================== -->
-
-    <section
-      class="section alt"
-      id="experience"
-    >
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            EXPERIENCE
-          </span>
-
-
-          <h2>
-            Hands-on experience before graduation.
-          </h2>
-
-
-          <p>
-
-            Experience across data analytics
-            and machine learning, with an
-            emphasis on practical delivery.
-
-          </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-          <div class="experience reveal">
-
-            <div class="experience-card">
-
-              <h3>
-                Data Analyst — Dyashin Technosoft Pvt Ltd
-              </h3>
-
-
-              <div class="meta">
-
-                Bengaluru · Data Analytics Internship
-
-              </div>
-
-
-              <ul>
-
-                <li>
-
-                  Worked with
-                  <strong>
-                    SQL, Python/Pandas and Power BI
-                  </strong>
-                  for analysis and reporting.
-
-                </li>
-
-
-                <li>
-
-                  Built dashboards and reusable
-                  analytical datasets for
-                  business reporting.
-
-                </li>
-
-
-                <li>
-
-                  Worked on ETL and data preparation
-                  workflows to reduce repetitive
-                  manual work.
-
-                </li>
-
-
-                <li>
-
-                  Translated analysis into
-                  business-facing insights and
-                  KPI reporting.
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="experience reveal">
-
-            <div class="experience-card">
-
-              <h3>
-                Machine Learning — Take It Smart
-                (OPC) Pvt Ltd
-              </h3>
-
-
-              <div class="meta">
-
-                Bengaluru · Machine Learning Internship
-
-              </div>
-
-
-              <ul>
-
-                <li>
-
-                  Built supervised machine-learning
-                  workflows using
-                  <strong>
-                    Python and Scikit-learn
-                  </strong>.
-
-                </li>
-
-
-                <li>
-
-                  Worked on data preparation,
-                  exploratory analysis, model training
-                  and evaluation.
-
-                </li>
-
-
-                <li>
-
-                  Developed
-                  <strong>
-                    Beyond Toss
-                  </strong>,
-                  a cricket match outcome prediction
-                  project using a T20 World Cup dataset.
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         SKILLS
-    ====================================================== -->
-
-    <section
-      class="section"
-      id="skills"
-    >
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            TECH STACK
-          </span>
-
-
-          <h2>
-            Tools I use to move from
-            data to delivery.
-          </h2>
-
-        </div>
-
-
-        <div class="skills">
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Data Engineering
-            </h3>
-
-            <div class="skill-list">
-
-              <span>PySpark</span>
-              <span>Databricks</span>
-              <span>ETL</span>
-              <span>Data Pipelines</span>
-              <span>Airflow</span>
-              <span>Data Warehousing</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Languages
-            </h3>
-
-            <div class="skill-list">
-
-              <span>Python</span>
-              <span>SQL</span>
-              <span>PySpark</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Data & Cloud
-            </h3>
-
-            <div class="skill-list">
-
-              <span>BigQuery</span>
-              <span>MySQL</span>
-              <span>AWS</span>
-              <span>Azure</span>
-              <span>Data Lake</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Analytics & BI
-            </h3>
-
-            <div class="skill-list">
-
-              <span>Power BI</span>
-              <span>DAX</span>
-              <span>Looker Studio</span>
-              <span>GA4</span>
-              <span>Excel</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Python Data Stack
-            </h3>
-
-            <div class="skill-list">
-
-              <span>Pandas</span>
-              <span>NumPy</span>
-              <span>Scikit-learn</span>
-              <span>TensorFlow</span>
-              <span>Matplotlib</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="skill-card reveal">
-
-            <h3>
-              Engineering Tools
-            </h3>
-
-            <div class="skill-list">
-
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>Jupyter</span>
-              <span>VS Code</span>
-              <span>Google Colab</span>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         WORKFLOW
-    ====================================================== -->
-
-    <section class="section alt">
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            MY APPROACH
-          </span>
-
-
-          <h2>
-            A practical data workflow.
-          </h2>
-
-        </div>
-
-
-        <div class="process">
-
-
-          <div class="process-step reveal">
-
-            <b>
-              01 · UNDERSTAND
-            </b>
-
-            <h3>
-              Define the question
-            </h3>
-
-            <p>
-
-              Clarify the business problem,
-              users, KPIs and expected outcome.
-
-            </p>
-
-          </div>
-
-
-          <div class="process-step reveal">
-
-            <b>
-              02 · BUILD
-            </b>
-
-            <h3>
-              Prepare the data
-            </h3>
-
-            <p>
-
-              Ingest, clean, transform and
-              validate source data with
-              reproducible workflows.
-
-            </p>
-
-          </div>
-
-
-          <div class="process-step reveal">
-
-            <b>
-              03 · MODEL
-            </b>
-
-            <h3>
-              Make it reusable
-            </h3>
-
-            <p>
-
-              Design analysis-ready tables,
-              dimensional models and
-              trusted metrics.
-
-            </p>
-
-          </div>
-
-
-          <div class="process-step reveal">
-
-            <b>
-              04 · DELIVER
-            </b>
-
-            <h3>
-              Explain the insight
-            </h3>
-
-            <p>
-
-              Turn the output into dashboards,
-              diagnostics and clear business actions.
-
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         CERTIFICATIONS
-    ====================================================== -->
-
-    <section
-      class="section"
-      id="certifications"
-    >
-
-      <div class="container">
-
-
-        <div class="section-head reveal">
-
-          <span class="eyebrow">
-            CERTIFICATIONS
-          </span>
-
-
-          <h2>
-            Continuous learning.
-          </h2>
-
-        </div>
-
-
-        <div class="cert-grid">
-
-
-          <div class="cert reveal">
-
-            Deloitte Australia —
-            Data Analytics Job Simulation
-
-          </div>
-
-
-          <div class="cert reveal">
-
-            HP LIFE —
-            Data Science & Analytics
-
-          </div>
-
-
-          <div class="cert reveal">
-
-            IBM —
-            Data Analytics Basics
-
-          </div>
-
-
-          <div class="cert reveal">
-
-            NPTEL IIT Madras —
-            Information Security
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         CONTACT
-    ====================================================== -->
-
-    <section
-      class="section alt"
-      id="contact"
-    >
-
-      <div class="container">
-
-
-        <div class="contact-box reveal">
-
-          <span class="eyebrow">
-            LET'S CONNECT
-          </span>
-
-
-          <h2>
-            Have a data problem worth solving?
-          </h2>
-
-
-          <p>
-
-            I'm open to Data Engineer,
-            Data Analyst and Analytics Engineer
-            opportunities in Bengaluru,
-            as well as strong remote opportunities.
-
-          </p>
-
-
-          <div
-            class="actions"
-            style="justify-content:center;"
-          >
-
-
-            <a
-              class="btn primary"
-              href="mailto:amgowda74@gmail.com"
-            >
-              Email me →
-            </a>
-
-
-            <a
-              class="btn secondary"
-              href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/"
-              target="_blank"
-              rel="noopener"
-            >
-              LinkedIn ↗
-            </a>
-
-
-            <a
-              class="btn secondary"
-              href="https://github.com/AkshayGowda45"
-              target="_blank"
-              rel="noopener"
-            >
-              GitHub ↗
-            </a>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
-
-  <footer>
-
-    <div class="container footer-row">
-
-      <span>
-        © 2026 Akshay Gowda A M
-      </span>
-
-      <span>
-        Built with HTML, CSS & JavaScript ·
-        Hosted with GitHub Pages
-      </span>
 
     </div>
 
-  </footer>
+</section>
 
 
 
-  <!-- =======================================================
-       JAVASCRIPT
-  ======================================================== -->
+<!-- =====================================================
+     QUICK PROOF
+===================================================== -->
 
-  <script>
+<section>
 
-    /* Mobile menu */
+    <div class="container">
 
-    const menuBtn =
-      document.getElementById("menuBtn");
+        <div class="stats">
 
-    const navLinks =
-      document.getElementById("navLinks");
+            <div class="stat-card">
 
+                <div class="stat-number">
+                    1 Year
+                </div>
 
-    menuBtn.addEventListener(
-      "click",
-      () => {
+                <div class="stat-title">
+                    Hands-on Internship Experience
+                </div>
 
-        navLinks.classList.toggle(
-          "open"
-        );
-
-        menuBtn.setAttribute(
-          "aria-expanded",
-          navLinks.classList.contains("open")
-        );
-
-      }
-    );
+            </div>
 
 
-    navLinks
-      .querySelectorAll("a")
-      .forEach(link => {
+            <div class="stat-card">
 
-        link.addEventListener(
-          "click",
-          () => {
+                <div class="stat-number">
+                    End-to-End
+                </div>
 
-            navLinks.classList.remove(
-              "open"
-            );
+                <div class="stat-title">
+                    ETL → Modeling → Analytics
+                </div>
 
-          }
-        );
-
-      });
+            </div>
 
 
-    /* Scroll reveal */
+            <div class="stat-card">
 
-    const observer =
-      new IntersectionObserver(
-        entries => {
+                <div class="stat-number">
+                    4+
+                </div>
 
-          entries.forEach(
-            entry => {
+                <div class="stat-title">
+                    Data & ML Projects
+                </div>
 
-              if (
-                entry.isIntersecting
-              ) {
-
-                entry.target.classList.add(
-                  "show"
-                );
-
-                observer.unobserve(
-                  entry.target
-                );
-
-              }
-
-            }
-          );
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
+            </div>
 
 
-    document
-      .querySelectorAll(".reveal")
-      .forEach(
-        element =>
-          observer.observe(element)
-      );
+            <div class="stat-card">
 
-  </script>
+                <div class="stat-number">
+                    MCA
+                </div>
+
+                <div class="stat-title">
+                    Graduate · 2026
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                ABOUT ME
+            </div>
+
+            <h2>
+                I turn raw data into systems people can use.
+            </h2>
+
+            <p>
+                My focus is building reliable data workflows,
+                analytics solutions and dashboards that help
+                teams understand what is happening and make
+                better decisions.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-card">
+
+                <h3>
+                    What I Build
+                </h3>
+
+                <p>
+
+                    Data pipelines, ETL workflows, analytical
+                    datasets, star-schema data models,
+                    Power BI dashboards, BigQuery analytics
+                    solutions and machine learning applications.
+
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>
+                    How I Think
+                </h3>
+
+                <p>
+
+                    I focus on the complete data lifecycle:
+                    understanding the business problem,
+                    extracting data, transforming and validating
+                    it, modeling it correctly, and finally
+                    delivering useful insights.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                SELECTED WORK
+            </div>
+
+            <h2>
+                Projects built around real data problems.
+            </h2>
+
+            <p>
+                A selection of data engineering, analytics
+                and machine learning projects.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-top">
+
+                    <div>
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <h3>
+                            QuickCommerce360
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Enterprise-style quick commerce data
+                    intelligence platform using ETL,
+                    dimensional modeling and BI analytics.
+                    Built analytical workflows for customer
+                    segmentation, RFM analysis, revenue,
+                    delivery performance and marketing ROI.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+
+                    <span class="tech">PySpark</span>
+
+                    <span class="tech">Databricks</span>
+
+                    <span class="tech">SQL</span>
+
+                    <span class="tech">MySQL</span>
+
+                    <span class="tech">Power BI</span>
+
+                    <span class="tech">ETL</span>
+
+                    <span class="tech">Star Schema</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/AkshayGowda45"
+                    target="_blank"
+                    class="project-link"
+                >
+                    View on GitHub →
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-top">
+
+                    <div>
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <h3>
+                            EzyGamers Analytics
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Analytics engineering pipeline for a
+                    gaming platform using GA4 and BigQuery.
+                    Built analytical datasets and dashboards
+                    to understand users, sessions, page views,
+                    game starts, completions and player
+                    drop-offs.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">GA4</span>
+
+                    <span class="tech">BigQuery</span>
+
+                    <span class="tech">SQL</span>
+
+                    <span class="tech">Looker Studio</span>
+
+                    <span class="tech">Analytics Engineering</span>
+
+                </div>
+
+
+                <a
+                    href="https://ezygamers-dashboard.vercel.app"
+                    target="_blank"
+                    class="project-link"
+                >
+                    Live Dashboard →
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-top">
+
+                    <div>
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <h3>
+                            AnomAI
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    AI-driven Industrial IoT anomaly detection
+                    and real-time monitoring system designed
+                    to identify abnormal sensor behavior and
+                    support predictive monitoring.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+
+                    <span class="tech">Machine Learning</span>
+
+                    <span class="tech">Scikit-learn</span>
+
+                    <span class="tech">TensorFlow</span>
+
+                    <span class="tech">IoT</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/AkshayGowda45"
+                    target="_blank"
+                    class="project-link"
+                >
+                    View on GitHub →
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-top">
+
+                    <div>
+
+                        <div class="project-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Retail Sales Analytics
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Retail analytics workflow involving data
+                    cleaning, exploratory analysis, SQL-based
+                    analysis and business dashboards for
+                    understanding sales performance and trends.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+
+                    <span class="tech">Pandas</span>
+
+                    <span class="tech">SQL</span>
+
+                    <span class="tech">MySQL</span>
+
+                    <span class="tech">Power BI</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/AkshayGowda45"
+                    target="_blank"
+                    class="project-link"
+                >
+                    View on GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                EXPERIENCE
+            </div>
+
+            <h2>
+                Experience that shaped how I work with data.
+            </h2>
+
+        </div>
+
+
+        <div class="experience">
+
+
+            <div class="experience-card">
+
+                <div class="experience-date">
+                    Data Analytics Internship
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Data Analyst
+                    </h3>
+
+                    <div class="company">
+                        Dyashin Technosoft Pvt Ltd
+                    </div>
+
+                    <p>
+
+                        Worked with SQL, Python/Pandas and Power BI
+                        for analytics and reporting. Built data
+                        preparation and ETL workflows, optimized
+                        analytical queries and developed dashboards
+                        to turn operational data into actionable
+                        insights.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="experience-card">
+
+                <div class="experience-date">
+                    Machine Learning Internship
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <div class="company">
+                        Take It Smart (OPC) Pvt Ltd
+                    </div>
+
+                    <p>
+
+                        Worked on supervised machine learning
+                        workflows using Python and Scikit-learn.
+                        Performed data preparation, exploratory
+                        analysis, model training and evaluation.
+                        Developed the Beyond Toss match outcome
+                        prediction project.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                TECHNICAL SKILLS
+            </div>
+
+            <h2>
+                Tools I use to build data solutions.
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Data Engineering
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">ETL</span>
+                    <span class="skill">Data Modeling</span>
+                    <span class="skill">Star Schema</span>
+                    <span class="skill">Data Warehousing</span>
+                    <span class="skill">Data Quality</span>
+                    <span class="skill">PySpark</span>
+                    <span class="skill">Databricks</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Programming & SQL
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Python</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">MySQL</span>
+                    <span class="skill">Pandas</span>
+                    <span class="skill">NumPy</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Cloud & Data Platforms
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">BigQuery</span>
+                    <span class="skill">Azure</span>
+                    <span class="skill">AWS Basics</span>
+                    <span class="skill">Databricks</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Analytics & BI
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Power BI</span>
+                    <span class="skill">DAX</span>
+                    <span class="skill">Looker Studio</span>
+                    <span class="skill">Excel</span>
+                    <span class="skill">Tableau</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Machine Learning
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Scikit-learn</span>
+                    <span class="skill">TensorFlow</span>
+                    <span class="skill">Classification</span>
+                    <span class="skill">EDA</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Engineering Tools
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">Jupyter</span>
+                    <span class="skill">Google Colab</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORKFLOW
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                MY APPROACH
+            </div>
+
+            <h2>
+                From raw data to business value.
+            </h2>
+
+        </div>
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    Define the business problem,
+                    requirements and KPIs.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+                    Extract, clean and transform
+                    raw data into reliable datasets.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <h3>
+                    Model
+                </h3>
+
+                <p>
+                    Design analytical models,
+                    relationships and quality checks.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Turn trusted data into dashboards,
+                    insights and decisions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                EDUCATION
+            </div>
+
+            <h2>
+                Academic foundation.
+            </h2>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <div class="experience-date">
+                2026
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Master of Computer Applications
+                </h3>
+
+                <div class="company">
+                    SJB Institute of Technology, Bengaluru
+                </div>
+
+                <p>
+                    MCA graduate with a strong focus on data
+                    analytics, data engineering, machine learning
+                    and software technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATIONS
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                CERTIFICATIONS
+            </div>
+
+            <h2>
+                Continuous learning.
+            </h2>
+
+        </div>
+
+
+        <div class="certifications">
+
+            <div class="cert-card">
+
+                Deloitte Australia
+                <span>
+                    Data Analytics Job Simulation · Forage
+                </span>
+
+            </div>
+
+
+            <div class="cert-card">
+
+                HP LIFE
+                <span>
+                    Data Science & Analytics
+                </span>
+
+            </div>
+
+
+            <div class="cert-card">
+
+                IBM
+                <span>
+                    Data Analytics
+                </span>
+
+            </div>
+
+
+            <div class="cert-card">
+
+                NPTEL · IIT Madras
+                <span>
+                    Information Security
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="section-label">
+                LET'S CONNECT
+            </div>
+
+
+            <h2>
+                Let's build something with data.
+            </h2>
+
+
+            <p>
+
+                I'm open to Data Engineer, Analytics Engineer,
+                Data Analyst and related opportunities.
+
+            </p>
+
+
+            <div class="contact-links">
+
+
+                <a
+                    href="mailto:amgowda74@gmail.com"
+                    class="btn btn-primary"
+                >
+                    Email Me
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/akshay-gowda-a-m-388635343/"
+                    target="_blank"
+                    class="btn btn-outline"
+                >
+                    LinkedIn
+                </a>
+
+
+                <a
+                    href="https://github.com/AkshayGowda45"
+                    target="_blank"
+                    class="btn btn-outline"
+                >
+                    GitHub
+                </a>
+
+
+                <a
+                    href="Akshay_Gowda_AM_Data_Engineer_Resume.pdf"
+                    target="_blank"
+                    class="btn btn-outline"
+                >
+                    Download Resume
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        © 2026 Akshay Gowda A M ·
+        Data Engineer · Analytics Engineer
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>
